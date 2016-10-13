@@ -4,17 +4,17 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressSession = require('express-session');
-var mongoose = require('mongoose');
+//var mongoose = require('mongoose');
 var hash = require('bcrypt-nodejs');
 var path = require('path');
 var passport = require('passport');
 var localStrategy = require('passport-local' ).Strategy;
 
 // mongoose
-mongoose.connect('mongodb://localhost/mean-auth');
+//mongoose.connect('mongodb://localhost/mean-auth');
 
 // user schema/model
-var User = require('./models/user.js');
+//var User = require('./models/user.js');
 
 // create instance of express
 var app = express();
@@ -38,9 +38,9 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // configure passport
-passport.use(new localStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+//passport.use(new localStrategy(User.authenticate()));
+//passport.serializeUser(User.serializeUser());
+//passport.deserializeUser(User.deserializeUser());
 
 // routes
 app.use('/user/', routes);
